@@ -2,6 +2,7 @@ import "globals.css";
 import { TopNavBar } from "components/TopNavBar";
 import { Analytics } from "@vercel/analytics/react";
 import FontLoaderWrapper from "components/FontLoaderWrapper";
+import Providers from "../app/Providers"
 
 export const metadata = {
   title: "OpenResume - Free Open-source Resume Builder and Parser",
@@ -19,7 +20,7 @@ export default function RootLayout({
       <body>
         <FontLoaderWrapper />
         <TopNavBar />
-        {children}
+        <Providers>{children}</Providers>
         <Analytics />
       </body>
     </html>
