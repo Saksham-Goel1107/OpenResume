@@ -3,15 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getChat, setChat } from "../../utils/redis";
 import { v4 as uuidv4 } from 'uuid';
 
-const apiKey = process.env.GEMINI_API_KEY;
-console.log('API Key length:', apiKey?.length || 0); 
-if (!apiKey) {
-  throw new Error('GEMINI_API_KEY is not properly configured in environment variables. Please check your .env.local file.');
-}
-if (typeof apiKey !== 'string' || apiKey.trim() === '') {
-  throw new Error('GEMINI_API_KEY is empty or invalid');
-}
-const genAI = new GoogleGenerativeAI(apiKey);
+// Initialize genAI only at runtime to avoid build errors
+let genAI: GoogleGenerativeAI;
 
 const SYSTEM_CONTEXT = `You are an AI assistant for OpenResume, a powerful open-source resume builder and resume parser designed to modernize the job application process. Built with privacy in mind, OpenResume runs entirely in the browser and requires no account creation.
 
@@ -112,6 +105,21 @@ interface ChatMessage {
 
 export async function POST(req: NextRequest) {
   try {
+    // Check API key at runtime instead of build time
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey || typeof apiKey !== 'string' || apiKey.trim() === '') {
+      console.error('GEMINI_API_KEY is not properly configured');
+      return NextResponse.json(
+        { error: "Invalid API configuration. Please contact the administrator." },
+        { status: 500 }
+      );
+    }
+
+    // Initialize the API only when needed
+    if (!genAI) {
+      genAI = new GoogleGenerativeAI(apiKey);
+    }
+    
     const { message, sessionId = uuidv4() } = await req.json();
     
     if (!message) {

@@ -78,6 +78,20 @@ OpenResume is created with the NextJS web framework and follows its project stru
 
 1. Download the repo `git clone https://github.com/Saksham-Goel1107/OpenResume.git`
 2. Change the directory `cd OpenResume`
-3. Build the container `docker build -t open-resume .`
-4. Start the container `docker run -p 3000:3000 open-resume`
-5. Open your browser and visit [http://localhost:3000](http://localhost:3000) to see OpenResume live
+3. Setup environment variables: `create a `.env` file with your Gemini API key
+4. Build the container `docker build -t open-resume .`
+5. Start the container `docker run -p 3000:3000 --env-file .env open-resume`
+6. Open your browser and visit [http://localhost:3000](http://localhost:3000) to see OpenResume live
+
+## 🚀 Deployment
+
+### Deploying to Render (Recommended)
+For detailed instructions on deploying to Render, see [Render Deployment Guide](./docs/render-deployment.md).
+
+Key steps:
+1. Connect your GitHub repository to Render
+2. Configure as a Web Service with Docker runtime
+3. Add your `GEMINI_API_KEY`and `REDIS_KEYS` as an environment variable
+4. Deploy
+
+Your environment variables (like API keys) are securely managed in Render and never exposed in your repository.
