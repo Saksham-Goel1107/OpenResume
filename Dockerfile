@@ -10,5 +10,8 @@ COPY --from=builder /app/.next/standalone .
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/static ./.next/static
 
+# Configure Next.js to listen on all interfaces
+ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
 EXPOSE 3000
 CMD ["node", "server.js"]

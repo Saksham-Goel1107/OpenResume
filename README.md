@@ -1,18 +1,30 @@
 # OpenResume
 
-OpenResume is a powerful open-source resume builder and resume parser.
+[![GitHub Stars](https://img.shields.io/github/stars/Saksham-Goel1107/OpenResume?style=for-the-badge)](https://github.com/Saksham-goel1107/openResume)
 
-The goal of OpenResume is to provide everyone with free access to a modern professional resume design and enable anyone to apply for jobs with confidence.
+![GitHub forks](https://img.shields.io/github/forks/Saksham-Goel1107/OpenResume?style=for-the-badge)
+![License](https://img.shields.io/github/license/Saksham-Goel1107/OpenResume?style=for-the-badge)
 
-Official site: [https://open-resume.com](https://open-resume.com)
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript)
+
+</div>
+
+OpenResume is a powerful open-source resume builder and resume parser designed to modernize the job application process. Built with privacy in mind, it runs entirely in your browser and requires no account creation.
+
+The goal of OpenResume is to provide everyone with free access to modern professional resume designs and enable anyone to apply for jobs with confidence, regardless of their design skills or financial resources.
+
+**Official site:** [https://openresume.onrender.com/](https://openresume.onrender.com/)
+
+<!-- Inspired by the original work of xitanggg - thank you for pioneering this space -->
 
 ## ⚒️ Resume Builder
 
-OpenResume's resume builder allows user to create a modern professional resume easily.
+OpenResume's resume builder allows users to create modern, professional resumes with ease - no design skills required.
 
 ![Resume Builder Demo](https://i.ibb.co/jzcrrt8/resume-builder-demo-optimize.gif)
 
-It has 5 Core Features:
+### Key Features
 | <div style="width:285px">**Feature**</div> | **Description** |
 |---|---|
 | **1. Real Time UI Update** | The resume PDF is updated in real time as you enter your resume information, so you can easily see the final output. |
@@ -27,7 +39,7 @@ OpenResume’s second component is the resume parser. For those who have an exis
 
 ![Resume Parser Demo](https://i.ibb.co/JvSVwNk/resume-parser-demo-optimize.gif)
 
-You can learn more about the resume parser algorithm in the ["Resume Parser Algorithm Deep Dive" section](https://open-resume.com/resume-parser).
+You can learn more about the resume parser algorithm in the ["Resume Parser Algorithm Deep Dive" section](https://openresume.onrender.com/resume-parser).
 
 ## 📚 Tech Stack
 

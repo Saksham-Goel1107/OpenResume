@@ -36,70 +36,33 @@ const QAS = [
           Other than OpenResume, there are some great free resume builders out
           there, e.g. <Link href="https://rxresu.me/">Reactive Resume</Link>,{" "}
           <Link href="https://flowcv.com/">FlowCV</Link>. However, OpenResume
-          stands out with 2 distinctive features:
+          stands out with distinctive features:
         </p>{" "}
         <p>
           <span className="font-semibold">
-            1. OpenResume is designed specifically for the U.S. job market and
-            best practices.
-          </span>
-          <br />
-          Unlike other resume builders that target a global audience and offer
-          many customization options, OpenResume intentionally only offers
-          options that are aligned with U.S. best practices. For example, it
-          excludes the option to add a profile picture to avoid bias and
-          discrimination. It offers only the core sections, e.g. profile, work
-          experience, education, and skills, while omitting unnecessary sections
-          like references. Additionally, OpenResume only offers a top down
-          single column resume design as opposed to two column design, because
-          single column design works best for AST. <br />{" "}
-        </p>
-        <p>
-          <span className="font-semibold">
-            2. OpenResume is super privacy focus.
+            1. OpenResume is super privacy focus.
           </span>{" "}
           <br />
           While other resume builders may require email sign up and store user
           data in their databases, OpenResume believes that resume data should
-          remain private and accessible only on user’s local machine. Therefore,
-          OpenResume doesn’t require sign up to use the app, and all inputted
-          data is stored in user’s browser that only user has access to.
+          remain private and accessible only on user&apos;s local machine. Therefore,
+          OpenResume doesn&apos;t require sign up to use the app, and all inputted
+          data is stored in user&apos;s browser that only user has access to.
         </p>
       </>
     ),
   },
   {
-    question: "Q3. Who created OpenResume and why?",
-    answer: (
-      <p>
-        OpenResume was created by{" "}
-        <Link href="https://github.com/xitanggg">Xitang Zhao</Link> and designed
-        by <Link href="https://www.linkedin.com/in/imzhi">Zhigang Wen</Link> as
-        a weekend project. As immigrants to the US, we had made many mistakes
-        when creating our first resumes and applying for internships and jobs.
-        It took us a long while to learn some of the best practices. While
-        mentoring first generation students and reviewing their resumes, we
-        noticed students were making the same mistakes that we had made before.
-        This led us to think about how we can be of help with the knowledge and
-        skills we have gained. We started chatting and working over the weekends
-        that led to OpenResume, where we integrated best practices and our
-        knowledge into this resume builder. Our hope is that OpenResume can help
-        anyone to easily create a modern professional resume that follows best
-        practices and enable anyone to apply for jobs with confidence.
-      </p>
-    ),
-  },
-  {
-    question: "Q4. How can I support OpenResume?",
+    question: "Q3. How can I support OpenResume?",
     answer: (
       <>
         <p>
           The best way to support OpenResume is to share your thoughts and
           feedback with us to help further improve it. You can send us an email
           at{" "}
-          <Link href="mailto:hello@open-resume.com">hello@open-resume.com</Link>{" "}
+          <Link href="mailto:sakshamgoel1107@gmail.com">sakshamgoel1107@gmail.com</Link>{" "}
           or{" "}
-          <Link href="https://github.com/xitanggg/open-resume/issues/new">
+          <Link href="https://github.com/Saksham-Goel1107/OpenResume/issues/new">
             open an issue
           </Link>{" "}
           at our Github repository. Whether you like it or not, we would love to
@@ -108,11 +71,11 @@ const QAS = [
         <p>
           Another great way to support OpenResume is by spreading the words.
           Share it with your friends, on social media platforms, or with your
-          school’s career center. Our goal is to reach more people who struggle
+          school&apo;s career center. Our goal is to reach more people who struggle
           with creating their resume, and your word-of-mouth support would be
           greatly appreciated. If you use Github, you can also show your support
           by{" "}
-          <Link href="https://github.com/xitanggg/open-resume">
+          <Link href="https://github.com/Saksham-Goel1107/OpenResume">
             giving the project a star
           </Link>{" "}
           to help increase its popularity and reach.

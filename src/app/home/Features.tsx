@@ -14,7 +14,7 @@ const FEATURES = [
   {
     src: featureUSSrc,
     title: "Best Practices",
-    text: "OpenResume has built-in best practices for the U.S. job market and works well with top ATS platforms such as Greenhouse and Lever",
+    text: "OpenResume has built-in best practices for the job market and works well with top ATS platforms such as Greenhouse and Lever",
   },
   {
     src: featurePrivacySrc,
@@ -28,7 +28,7 @@ const FEATURES = [
       <>
         OpenResume is an open-source project, and its source code can be viewed
         by anyone on its{" "}
-        <Link href="https://github.com/xitanggg/open-resume">
+        <Link href="https://github.com/Saksham-Goel1107/OpenResume">
           GitHub repository
         </Link>
       </>
