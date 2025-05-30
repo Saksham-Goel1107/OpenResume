@@ -2,7 +2,8 @@ import "globals.css";
 import { TopNavBar } from "components/TopNavBar";
 import { Analytics } from "@vercel/analytics/react";
 import FontLoaderWrapper from "components/FontLoaderWrapper";
-import Providers from "../app/Providers"
+import Providers from "../app/Providers";
+import Script from "next/script";
 
 export const metadata = {
   title: "OpenResume - Free Open-source Resume Builder and Parser",
@@ -17,6 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Load UserWay Accessibility Widget safely */}
+        <Script
+          src="https://cdn.userway.org/widget.js"
+          strategy="afterInteractive"
+          data-account="4MvwVUNjK2"
+        />
+      </head>
       <body>
         <FontLoaderWrapper />
         <TopNavBar />
