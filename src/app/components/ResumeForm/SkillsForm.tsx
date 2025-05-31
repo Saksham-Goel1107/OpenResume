@@ -12,6 +12,7 @@ import {
   changeShowBulletPoints,
   selectThemeColor,
 } from "lib/redux/settingsSlice";
+import AskAiButton from '../AskAiButton';
 
 export const SkillsForm = () => {
   const skills = useAppSelector(selectSkills);
@@ -35,6 +36,17 @@ export const SkillsForm = () => {
     dispatch(changeShowBulletPoints({ field: form, value }));
   };
 
+  const handleAiSuggestion = (suggestion: string) => {
+    const points = suggestion
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line.length > 0)
+      .flatMap(point => [point, '']) 
+      .slice(0, -1); 
+    
+    handleSkillsChange('descriptions', points);
+  };
+
   return (
     <Form form={form}>
       <div className="col-span-full grid grid-cols-6 gap-3">
@@ -52,6 +64,33 @@ export const SkillsForm = () => {
             <BulletListIconButton
               showBulletPoints={showBulletPoints}
               onClick={handleShowBulletPoints}
+            />
+          </div>
+          <div className="absolute right-2 top-8">
+            <AskAiButton
+              defaultPrompt={`You are a professional resume writer. Transform the following skills into clear bullet points:
+
+"${descriptions.join('\n')}"
+
+Strictly follow this format:
+Skill point 1 here(next line)
+Skill point 2 here(next line)
+Skill point 3 here(next line)
+
+Rules:
+- Write exactly 3 skill points
+- Start each with a technical skill or domain
+- Group related skills together
+- Include both hard and soft skills
+- Focus on in-demand/relevant skills
+- Make it ATS-friendly
+- Keep each point concise (1 line)
+- No bullet markers or numbers
+- No explanations or commentary
+- Use natural, professional language
+- No formatting or special characters
+`}
+              onResult={handleAiSuggestion}
             />
           </div>
         </div>

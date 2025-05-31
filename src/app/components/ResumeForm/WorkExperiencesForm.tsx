@@ -10,6 +10,7 @@ import {
   selectWorkExperiences,
 } from "lib/redux/resumeSlice";
 import type { ResumeWorkExperience } from "lib/redux/types";
+import AskAiButton from '../AskAiButton';
 
 export const WorkExperiencesForm = () => {
   const workExperiences = useAppSelector(selectWorkExperiences);
@@ -26,13 +27,25 @@ export const WorkExperiencesForm = () => {
             value,
           ]: CreateHandleChangeArgsWithDescriptions<ResumeWorkExperience>
         ) => {
-          // TS doesn't support passing union type to single call signature
-          // https://github.com/microsoft/TypeScript/issues/54027
-          // any is used here as a workaround
           dispatch(changeWorkExperiences({ idx, field, value } as any));
         };
         const showMoveUp = idx !== 0;
         const showMoveDown = idx !== workExperiences.length - 1;
+
+        const handleAiSuggestion = (suggestion: string) => {
+          const points = suggestion
+            .split('\n')
+            .reduce((acc: string[], line) => {
+              if (line.trim()) {
+                if (acc.length > 0) {
+                  acc.push('');
+                }
+                acc.push(line.trim());
+              }
+              return acc;
+            }, []);
+          handleWorkExperienceChange('descriptions', points);
+        };
 
         return (
           <FormSection
@@ -68,14 +81,39 @@ export const WorkExperiencesForm = () => {
               value={date}
               onChange={handleWorkExperienceChange}
             />
-            <BulletListTextarea
-              label="Description"
-              labelClassName="col-span-full"
-              name="descriptions"
-              placeholder="Bullet points"
-              value={descriptions}
-              onChange={handleWorkExperienceChange}
-            />
+            <div className="col-span-full relative">
+              <BulletListTextarea
+                label="Description"
+                labelClassName="col-span-full"
+                name="descriptions"
+                placeholder="Bullet points"
+                value={descriptions}
+                onChange={handleWorkExperienceChange}
+              />
+              <div className="absolute right-2 top-8">
+                <AskAiButton
+  defaultPrompt={`You are a professional resume writer. Rewrite and enhance the following work experience to make it more impactful and ATS-friendly, without changing the meaning:
+
+"${descriptions.join('\n')}"
+
+Instructions:
+- Only return 2 to 3 short points
+- Each point must be on its own line with no bullet points or numbers
+- Leave a single space between each point (line break with spacing)
+- Each point must be only 1–2 lines long (concise and to the point)
+- Use action verbs and focus on achievements and results
+- Include metrics if possible
+- Do NOT explain anything-just return the rewritten points only
+- Do NOT add phrases like "Here are your points" or "Improved version"
+- Do NOT use unnatural or robotic wording—write in natural, professional language
+- No formatting like bold or quotes
+`}
+
+
+                  onResult={handleAiSuggestion}
+                />
+              </div>
+            </div>
           </FormSection>
         );
       })}

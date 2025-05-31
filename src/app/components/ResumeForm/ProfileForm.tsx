@@ -3,6 +3,7 @@ import { Input, Textarea } from "components/ResumeForm/Form/InputGroup";
 import { useAppDispatch, useAppSelector } from "lib/redux/hooks";
 import { changeProfile, selectProfile } from "lib/redux/resumeSlice";
 import { ResumeProfile } from "lib/redux/types";
+import AskAiButton from '../AskAiButton'
 
 export const ProfileForm = () => {
   const profile = useAppSelector(selectProfile);
@@ -24,14 +25,19 @@ export const ProfileForm = () => {
           value={name}
           onChange={handleProfileChange}
         />
-        <Textarea
-          label="Objective"
-          labelClassName="col-span-full"
-          name="summary"
-          placeholder="Entrepreneur and educator obsessed with making education free for anyone"
-          value={summary}
-          onChange={handleProfileChange}
-        />
+        <div className="col-span-full relative">
+          <Textarea
+            label="Objective"
+            labelClassName="col-span-full"
+            name="summary"
+            placeholder="Entrepreneur and educator obsessed with making education free for anyone"
+            value={summary}
+            onChange={handleProfileChange}
+          />
+          <div className="absolute right-2 top-8">
+            <AskAiButton field="summary" />
+          </div>
+        </div>
         <Input
           label="Email"
           labelClassName="col-span-4"
