@@ -24,7 +24,7 @@
     "ioredis": "^5.6.1",
     "next": "^15.3.2",
     "pdfjs": "^2.5.0",
-    "pdfjs-dist": "^3.11.174",
+    "pdfjs-dist": "^5.3.31",
     "postcss": "^8.5.3",
     "react": "^19.1.0",
     "react-contenteditable": "^3.3.7",
